@@ -1,38 +1,125 @@
 .App {
   text-align: center;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ltr {
+  direction: ltr;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.rtl {
+  direction: rtl;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.images-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.image-container {
+  position: relative;
+  margin: 10px;
+  width: 200px;
+  height: 250px;
+}
+
+.image-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden;
+}
+
+.image-card p {
+  margin: 8px 0;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
   color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 4px;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.image-container:hover .image-card {
+  transform: rotateY(180deg);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 4px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
 }
+
+.image-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.image-popup {
+  position: relative;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: hidden;
+}
+
+.image-popup img {
+  width: 100%;
+  height: auto;
+}
+
+.image-popup p {
+  margin-top: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.rtl .image-container {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.rtl .delete-btn {
+  right: auto;
+  left: 5px;
+}
+
